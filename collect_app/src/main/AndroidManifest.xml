@@ -80,6 +80,7 @@ the specific language governing permissions and limitations under the License.
         android:smallScreens="true"
         android:xlargeScreens="true" />
 
+    <!-- android:name==".application.Collect" es el original -->
     <application
         android:name=".application.Collect"
         android:icon="@drawable/notes"
@@ -179,7 +180,7 @@ the specific language governing permissions and limitations under the License.
         <!-- Configure this key by setting GOOGLE_MAPS_API_KEY in collect_app/secrets.properties. -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/GOOGLE_MAPS_API_KEY" />
+            android:value="AIzaSyB9VhxSQBny-F2Ab83_dXwIMD9BkPvTXoo" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"
@@ -301,7 +302,7 @@ the specific language governing permissions and limitations under the License.
         <!-- Enable Shortcuts for Command Actions -->
         <activity
             android:name=".activities.AndroidShortcuts"
-            android:label="ODK Form"
+            android:label="IOTEC Form"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.CREATE_SHORTCUT" />

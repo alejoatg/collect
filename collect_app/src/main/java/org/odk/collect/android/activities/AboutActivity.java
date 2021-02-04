@@ -40,10 +40,14 @@ import timber.log.Timber;
 public class AboutActivity extends CollectAbstractActivity implements
         AboutListAdapter.AboutItemClickListener {
 
-    private static final String LICENSES_HTML_PATH = "file:///android_asset/open_source_licenses.html";
-    private static final String GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=";
-    private static final String ODK_WEBSITE = "https://opendatakit.org";
-    private static final String ODK_FORUM = "https://forum.opendatakit.org";
+    //private static final String LICENSES_HTML_PATH = "file:///android_asset/open_source_licenses.html";
+    //    private static final String GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=";
+    //    private static final String ODK_WEBSITE = "https://opendatakit.org";
+    //    private static final String ODK_FORUM = "https://forum.opendatakit.org";
+    private static final String LICENSES_HTML_PATH = "http://monitoreosatelitalgps.com";
+    private static final String GOOGLE_PLAY_URL = "http://monitoreosatelitalgps.com";
+    private static final String ODK_WEBSITE = "http://monitoreosatelitalgps.com";
+    private static final String ODK_FORUM = "http://monitoreosatelitalgps.com";
 
     private CustomTabHelper websiteTabHelper;
     private CustomTabHelper forumTabHelper;
@@ -98,16 +102,21 @@ public class AboutActivity extends CollectAbstractActivity implements
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_TEXT,
                             getString(R.string.tell_your_friends_msg) + " " + GOOGLE_PLAY_URL
-                                    + getPackageName());
-                    startActivity(Intent.createChooser(shareIntent,
+                            );
+                            startActivity(Intent.createChooser(shareIntent,
                             getString(R.string.tell_your_friends)));
+        //                    getString(R.string.tell_your_friends_msg) + " " + GOOGLE_PLAY_URL
+        //                            + getPackageName());
+        //            startActivity(Intent.createChooser(shareIntent,
+        //                    getString(R.string.tell_your_friends)));
                     break;
                 case 3:
                     boolean intentStarted = false;
                     try {
                         // Open the google play store app if present
                         Intent intent = new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("market://details?id=" + getPackageName()));
+                               // Uri.parse("market://details?id=" + getPackageName()));
+                                Uri.parse("market://details?id="));
                         List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent, 0);
                         for (ResolveInfo info : list) {
                             ActivityInfo activity = info.activityInfo;
@@ -129,7 +138,8 @@ public class AboutActivity extends CollectAbstractActivity implements
                     if (!intentStarted) {
                         // Show a list of all available browsers if user doesn't have a default browser
                         startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse(GOOGLE_PLAY_URL + getPackageName())));
+                      //          Uri.parse(GOOGLE_PLAY_URL + getPackageName())));
+                                Uri.parse(GOOGLE_PLAY_URL)));
                     }
                     break;
                 case 4:
